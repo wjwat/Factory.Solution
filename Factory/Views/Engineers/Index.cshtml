@@ -9,4 +9,8 @@
 else
 {
   @await Html.PartialAsync("_Tables/_EngineersTable")
+  <hr />
 }
+
+@await Html.PartialAsync("_Buttons/_AddEngineer")
+@await Html.PartialAsync("_Buttons/_AddMachine")

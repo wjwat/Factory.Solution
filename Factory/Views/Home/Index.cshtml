@@ -5,7 +5,9 @@
 <p>Welcome to Dr. Sillystringz's Factory of Despair management page.</p>
 <p>Please select an action below.</p>
 
-@* Lots of buttons here *@
+
+@await Html.PartialAsync("_Buttons/_AddEngineer")
+@await Html.PartialAsync("_Buttons/_AddMachine")
 
 <hr />
 

@@ -26,6 +26,7 @@ namespace Factory.Controllers
 
       public ActionResult Create()
       {
+        ViewBag.Machines = _db.Machines.ToList();
         return View();
       }
 
@@ -40,8 +41,8 @@ namespace Factory.Controllers
       public ActionResult Details(int id)
       {
         var engineer = _db.Engineers
-            .Include(e => e.Authorizations)
-            .ThenInclude(m => m.Machine)
+            // .Include(e => e.Authorizations)
+            // .ThenInclude(m => m.Machine)
             .FirstOrDefault(e => e.EngineerId == id);
         return View(engineer);
       }
@@ -62,7 +63,10 @@ namespace Factory.Controllers
 
       public ActionResult Delete(int id)
       {
-        var engineer = _db.Engineers.FirstOrDefault(e => e.EngineerId == id);
+        var engineer = _db.Engineers
+            .Include(e => e.Authorizations)
+            .ThenInclude(m => m.Machine)
+            .FirstOrDefault(e => e.EngineerId == id);
         return View(engineer);
       }
 

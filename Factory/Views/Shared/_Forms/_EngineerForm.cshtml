@@ -7,6 +7,13 @@
 @Html.TextBoxFor(e => e.LastName)
 @Html.ValidationMessageFor(e => e.LastName)
 
+<h2>Hello: @ViewBag.Machines</h2>
+
+@for (int i = 0; i < ViewBag.Machines.Count; i++)
+{
+  @*@Html.CheckBox(ViewBag.Machines[i].ModelName, null)*@
+}
+
 @*
 Need to add a section for selecting machine/machines, or none at all
 *@

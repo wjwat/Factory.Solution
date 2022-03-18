@@ -6,6 +6,14 @@
 {
   @await Html.PartialAsync("_Tables/_EngineerDetails")
 
+  @if (Model.Authorizations.Count() > 0)
+  {
+    <hr />
+    <h5>You will be orphaning these machines:</h5>
+    @await Html.PartialAsync("_Tables/_MachinesTable", @Model.Authorizations.Select(m => m.Machine).ToList())
+    <hr />
+  }
+
   @await Html.PartialAsync("_Buttons/_Cancel")
   @await Html.PartialAsync("_Buttons/_Delete")
 }
