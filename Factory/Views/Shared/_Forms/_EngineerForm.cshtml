@@ -1,0 +1,12 @@
+@model Factory.Models.Engineer
+
+@Html.LabelFor(e => e.FirstName)
+@Html.TextBoxFor(e => e.FirstName)
+@Html.ValidationMessageFor(e => e.FirstName)
+@Html.LabelFor(e => e.LastName)
+@Html.TextBoxFor(e => e.LastName)
+@Html.ValidationMessageFor(e => e.LastName)
+
+@*
+Need to add a section for selecting machine/machines, or none at all
+*@
