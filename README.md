@@ -74,4 +74,4 @@ TODO: Add instructions for migrations
 
 [MIT License](https://opensource.org/licenses/MIT)
 
-Copyright (c) 2022 Will W. (＃￣0￣)
+Copyright (c) 2022 Will W. (ｙﾟ 益ﾟ;)ｙ
