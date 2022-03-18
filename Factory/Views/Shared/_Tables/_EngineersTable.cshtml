@@ -1,29 +1,27 @@
 @using Factory.Models
 @model List<Factory.Models.Engineer>
 
-@*
 <table>
   <thead>
     <tr>
-      <th style='width: 12%'>Client ID</th>
-      <th>Client Name</th>
-      <th style='width: 12%'>Stylist ID</th>
-      <th style='width: 20%'></th>
+      <th style='width: 12%'>ID</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
-@foreach (Client c in Model)
+@foreach (Engineer e in Model)
 {
   <tr>
-    <td>@c.ClientId</td>
-    <td>@c.Name</td>
-    <td>@Html.ActionLink(@c.StylistId.ToString(), "Details", "Stylists", new { id = c.StylistId })</td>
-    <td>@Html.ActionLink("Details", "Details", "Clients", new {id = c.ClientId }) | 
-        @Html.ActionLink("Edit", "Edit", "Clients", new { id = c.ClientId }) | 
-        @Html.ActionLink("Delete", "Delete", "Clients", new { id = c.ClientId})</td>
+    <td>@e.EngineerId</td>
+    <td>@e.FirstName</td>
+    <td>@e.LastName</td>
+    <td>@Html.ActionLink("Details", "Details", "Engineers", new {id = e.EngineerId }) | 
+        @Html.ActionLink("Edit", "Edit", "Engineers", new { id = e.EngineerId }) | 
+        @Html.ActionLink("Delete", "Delete", "Engineers", new { id = e.EngineerId})</td>
   </tr>
 }
   </tbody>
 </table>
-<hr />
-*@
+

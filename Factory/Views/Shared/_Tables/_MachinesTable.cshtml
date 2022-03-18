@@ -1,0 +1,29 @@
+@using Factory.Models
+@model List<Factory.Models.Machine>
+
+@*
+<table>
+  <thead>
+    <tr>
+      <th style='width: 12%'>Client ID</th>
+      <th>Client Name</th>
+      <th style='width: 12%'>Stylist ID</th>
+      <th style='width: 20%'></th>
+    </tr>
+  </thead>
+  <tbody>
+@foreach (Client c in Model)
+{
+  <tr>
+    <td>@c.ClientId</td>
+    <td>@c.Name</td>
+    <td>@Html.ActionLink(@c.StylistId.ToString(), "Details", "Stylists", new { id = c.StylistId })</td>
+    <td>@Html.ActionLink("Details", "Details", "Clients", new {id = c.ClientId }) | 
+        @Html.ActionLink("Edit", "Edit", "Clients", new { id = c.ClientId }) | 
+        @Html.ActionLink("Delete", "Delete", "Clients", new { id = c.ClientId})</td>
+  </tr>
+}
+  </tbody>
+</table>
+<hr />
+*@
