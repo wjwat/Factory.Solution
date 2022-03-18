@@ -121,18 +121,14 @@ footer a {
 /*** Lil Guy ***/
 
 .lilguy:hover {
-  color: #5353ED;
+  color: #ff851b;
   font-weight: bold;
-  text-shadow: blue 1px 1px;
+  text-shadow: #ff4136 1px 1px;
 }
 
 .lilguy:hover:after {
   color: white;
-  content: " <(a database stepped on my foot...)";
-}
-.lilguy:hover:before {
-  color: white;
-  content: ".｡･ﾟﾟ･";
+  content: " <(TODO #1: This Factory Must Be Shut Down!)";
 }
 
 @keyframes rainbow_animation {
