@@ -1,0 +1,7 @@
+@model Factory.Models.Engineer
+
+<fieldset>
+  <legend>@Model.Name</legend>
+
+  @await Html.PartialAsync("_Tables/_EngineerDetails")
+</fieldset>

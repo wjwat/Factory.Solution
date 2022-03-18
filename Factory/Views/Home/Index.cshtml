@@ -14,9 +14,19 @@
   <h5>Engineers</h5>
   @await Html.PartialAsync("_Tables/_EngineersTable", (List<Factory.Models.Engineer>)ViewBag.Engineers)
 }
+else
+{
+  <h5>No Engineers currently employed.</h5>
+}
 
 @if (ViewBag.Machines.Count != 0)
 {
   <h5>Machines</h5>
   @await Html.PartialAsync("_Tables/_MachinesTable", (List<Factory.Models.Machine>)ViewBag.Machines)
 }
+else
+{
+  <h5>No Machines currently owned.</h5>
+}
+
+<hr />

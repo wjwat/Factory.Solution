@@ -1,0 +1,16 @@
+@section ValidationScripts {
+  @{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+  }
+}
+
+@model Factory.Models.Machine
+
+<h4>Add a new machine</h4>
+
+@using (Html.BeginForm())
+{
+  @await Html.PartialAsync("_Forms/_MachineForm")
+  <br />
+  <button>Add new machine</button>
+}

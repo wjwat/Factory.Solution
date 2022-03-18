@@ -1,0 +1,19 @@
+@section ValidationScripts {
+  @{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+  }
+}
+@model Factory.Models.Engineer
+
+<h2>Edit</h2>
+
+<h4>Edit this engineer: @Html.DisplayFor(e => e.Name)</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(e => e.EngineerId)
+
+  @await Html.PartialAsync("_Forms/_EngineerForm")
+  <br />
+  <button>Edit Client</button>
+}
