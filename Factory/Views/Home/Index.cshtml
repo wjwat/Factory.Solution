@@ -1,0 +1,22 @@
+@using Factory.Models
+
+<h2>Dr. Sillystringz's Factory of Despair</h2>
+
+<p>Welcome to Dr. Sillystringz's Factory of Despair management page.</p>
+<p>Please select an action below.</p>
+
+@* Lots of buttons here *@
+
+<hr />
+
+@if (ViewBag.Engineers.Count != 0)
+{
+  <h5>Engineers</h5>
+  @await Html.PartialAsync("_Tables/_EngineersTable", (List<Factory.Models.Engineer>)ViewBag.Engineers)
+}
+
+@if (ViewBag.Machines.Count != 0)
+{
+  <h5>Machines</h5>
+  @await Html.PartialAsync("_Tables/_MachinesTable", (List<Factory.Models.Machine>)ViewBag.Machines)
+}
