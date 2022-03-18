@@ -7,11 +7,10 @@
 @Html.TextBoxFor(e => e.LastName)
 @Html.ValidationMessageFor(e => e.LastName)
 
-<h2>Hello: @ViewBag.Machines</h2>
-
+<h5>Current Machines</h5>
 @for (int i = 0; i < ViewBag.Machines.Count; i++)
 {
-  @*@Html.CheckBox(ViewBag.Machines[i].ModelName, null)*@
+  <input type="checkbox" name="MachineId" value="@ViewBag.Machines[i].MachineId">@ViewBag.Machines[i].ModelName<br />
 }
 
 @*
