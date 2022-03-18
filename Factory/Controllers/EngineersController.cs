@@ -20,8 +20,8 @@ namespace Factory.Controllers
 
       public ActionResult Index()
       {
-        // pass in engineers to display their info in a table
-        return View();
+        List<Engineer> engineers = _db.Engineers.ToList();
+        return View(engineers);
       }
 
       public ActionResult Create()
