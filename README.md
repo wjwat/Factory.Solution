@@ -1,8 +1,8 @@
-# 
+# Factory Engineer & Machine Tracker
 
 #### By [Will W.](https://wjwat.com/)
 
-#### 
+#### Implement a vendor & ord... wait, I mean a engineer & machine tracker! Now with database migrations!
 
 ## :computer: Technologies Used
 
@@ -18,6 +18,10 @@
 * JQuery
 
 ## :memo: Description
+
+Use many-to-many relationships to build an app that allows you to see objects,
+the relationships between objects, and modify or delete those objects &
+relationships.
 
 ## :gear: Setup/Installation & Usage Instructions
 
@@ -49,21 +53,12 @@ TODO: Add instructions for migrations
 - [Using your
   terminal](https://www.freecodecamp.org/news/how-you-can-be-more-productive-right-now-using-bash-29a976fb1ab4/)
   navigate to the directory where you have cloned this repo.
-- Run `dotnet build HairSalon` in the top level directory of this repo.
-- Run `dotnet run --project HairSalon` to get the program running, and the site hosted locally.
+- Run `dotnet build Factory` in the top level directory of this repo.
+- Once the project has been built run `dotnet ef database update --project Factory` to create the database necessary to run the app.
+- Run `dotnet run --project Factory` to get the program running, and the site hosted locally.
 - Visit `http://localhost:5000` to try the site out.
-  - Please make sure to look at your terminal to determine the port number you should be visiting in your browser. It may change between runs.
-  - Ex:
-    ```shell
-    $ dotnet run --project HairSalon
-      Hosting environment: Production
-      Content root path: /path/to/HairSalon.Solution/HairSalon
-      Now listening on: http://localhost:5000
-      Now listening on: https://localhost:5001
-      Application started. Press Ctrl+C to shut down.
-    ```
 
-## :world_map: Roadmap
+## :page_facing_up: Notes
 
 ## :lady_beetle: Known Bugs
 
