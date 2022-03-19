@@ -1,9 +1,26 @@
+@{
+  string isChecked = "";
+}
 @model Factory.Models.Machine
 
 @Html.LabelFor(e => e.ModelName)
 @Html.TextBoxFor(e => e.ModelName)
 @Html.ValidationMessageFor(e => e.ModelName)
 
-@*
-Need to add a section for selecting engineer/engineers, or none at all
-*@
+<h5>Engineers</h5>
+@if (ViewBag.Engineers.Count == 0)
+{
+  <p>No engineers currently available</p>
+}
+else
+{
+  @for (int i = 0; i < ViewBag.Engineers.Count; i++)
+  {
+    @if (ViewBag.AuthorizedEngineers != null)
+    {
+      isChecked = (ViewBag.AuthorizedEngineers.Contains(@ViewBag.Engineers[i].EngineerId)) ? "checked" : "";
+    }
+
+    <input type="checkbox" name="EngineerId" value="@ViewBag.Engineers[i].EngineerId" @isChecked>@ViewBag.Engineers[i].Name<br />
+  }
+}

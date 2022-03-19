@@ -1,3 +1,6 @@
+@{
+  string isChecked = "";
+}
 @model Factory.Models.Engineer
 
 @Html.LabelFor(e => e.FirstName)
@@ -7,12 +10,20 @@
 @Html.TextBoxFor(e => e.LastName)
 @Html.ValidationMessageFor(e => e.LastName)
 
-<h5>Current Machines</h5>
-@for (int i = 0; i < ViewBag.Machines.Count; i++)
+<h5>Machines</h5>
+@if (ViewBag.Machines.Count == 0)
 {
-  <input type="checkbox" name="MachineId" value="@ViewBag.Machines[i].MachineId">@ViewBag.Machines[i].ModelName<br />
+  <p>No machines currently available</p>
 }
+else
+{
+  @for (int i = 0; i < ViewBag.Machines.Count; i++)
+  {
+    @if (ViewBag.AuthorizedMachines != null)
+    {
+      isChecked = (ViewBag.AuthorizedMachines.Contains(@ViewBag.Machines[i].MachineId)) ? "checked" : "";
+    }
 
-@*
-Need to add a section for selecting machine/machines, or none at all
-*@
+    <input type="checkbox" name="MachineId" value="@ViewBag.Machines[i].MachineId" @isChecked>@ViewBag.Machines[i].ModelName<br />
+  }
+}
