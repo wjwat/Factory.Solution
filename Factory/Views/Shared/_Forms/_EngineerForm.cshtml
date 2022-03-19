@@ -17,6 +17,7 @@
 }
 else
 {
+  <ul>
   @for (int i = 0; i < ViewBag.Machines.Count; i++)
   {
     @if (ViewBag.AuthorizedMachines != null)
@@ -24,6 +25,10 @@ else
       isChecked = (ViewBag.AuthorizedMachines.Contains(@ViewBag.Machines[i].MachineId)) ? "checked" : "";
     }
 
-    <input type="checkbox" name="MachineId" value="@ViewBag.Machines[i].MachineId" @isChecked>@ViewBag.Machines[i].ModelName<br />
+    <li>
+      <input type="checkbox" id="@ViewBag.Machines[i].MachineId-id" name="MachineId" value="@ViewBag.Machines[i].MachineId" @isChecked>
+      <label for="@ViewBag.Machines[i].MachineId-id">@ViewBag.Machines[i].ModelName</label><br />
+    </li>
   }
+  </ul>
 }
