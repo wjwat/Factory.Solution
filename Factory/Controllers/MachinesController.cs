@@ -26,22 +26,31 @@ namespace Factory.Controllers
 
       public ActionResult Create()
       {
+        ViewBag.Engineers = _db.Engineers.ToList();
         return View();
       }
 
       [HttpPost]
-      public ActionResult Create(Machine machine)
+      public ActionResult Create(Machine machine, int[] EngineerId)
       {
         _db.Machines.Add(machine);
         _db.SaveChanges();
+
+        foreach (int e in EngineerId)
+        {
+          _db.EngineerMachine.Add(new EngineerMachine() {
+              MachineId = machine.MachineId,
+              EngineerId = e
+          });
+        }
+        _db.SaveChanges();
+
         return RedirectToAction("Index");
       }
 
       public ActionResult Details(int id)
       {
         var machine = _db.Machines
-            .Include(e => e.Authorizations)
-            .ThenInclude(m => m.Engineer)
             .FirstOrDefault(e => e.MachineId == id);
         return View(machine);
       }
@@ -49,12 +58,37 @@ namespace Factory.Controllers
       public ActionResult Edit(int id)
       {
         var machine = _db.Machines.FirstOrDefault(e => e.MachineId == id);
+        ViewBag.Engineers = _db.Engineers.ToList();
+        ViewBag.AuthorizedEngineers = _db.EngineerMachine
+            .Where(e => e.MachineId == id)
+            .Select(m => m.EngineerId)
+            .ToList();
+
         return View(machine);
       }
 
       [HttpPost]
-      public ActionResult Edit(Machine machine)
+      public ActionResult Edit(Machine machine, int[] EngineerId)
       {
+        _db.EngineerMachine
+            .Where(m => m.MachineId == machine.MachineId
+                     && !EngineerId.Contains(m.EngineerId))
+            .ToList()
+            .ForEach(row => _db.EngineerMachine.Remove(row));
+
+        foreach (int e in EngineerId)
+        {
+          if (_db.EngineerMachine.Any(em => em.EngineerId == e && em.MachineId == machine.MachineId))
+          {
+            continue;
+          }
+
+          _db.EngineerMachine.Add(new EngineerMachine() {
+              EngineerId = e,
+              MachineId = machine.MachineId
+          });
+        }
+
         _db.Entry(machine).State = EntityState.Modified;
         _db.SaveChanges();
         return RedirectToAction("Index");
