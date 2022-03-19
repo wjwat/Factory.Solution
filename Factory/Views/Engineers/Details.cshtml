@@ -4,4 +4,13 @@
   <legend>@Model.Name</legend>
 
   @await Html.PartialAsync("_Tables/_EngineerDetails")
+
+  @await Html.PartialAsync("_Buttons/_EditEngineer")
+  @await Html.PartialAsync("_Buttons/_DeleteEngineer")
+
+  @if (Model.Authorizations.Count() > 0)
+  {
+    <h5>Authorized Machines:</h5>
+    @await Html.PartialAsync("_Tables/_MachinesTable", @Model.Authorizations.Select(m => m.Machine).ToList())
+  }
 </fieldset>

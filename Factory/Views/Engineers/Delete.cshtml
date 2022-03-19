@@ -4,12 +4,14 @@
 
 @using (Html.BeginForm())
 {
+  <h5>Engineer Details</h5>
+
   @await Html.PartialAsync("_Tables/_EngineerDetails")
 
   @if (Model.Authorizations.Count() > 0)
   {
     <hr />
-    <h5>You will be orphaning these machines:</h5>
+    <h5>This engineer is currently authorized to maintain these machines:</h5>
     @await Html.PartialAsync("_Tables/_MachinesTable", @Model.Authorizations.Select(m => m.Machine).ToList())
     <hr />
   }

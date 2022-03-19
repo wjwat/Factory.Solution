@@ -3,3 +3,18 @@
     await Html.RenderPartialAsync("_ValidationScriptsPartial");
   }
 }
+@model Factory.Models.Machine
+
+<h2>Edit</h2>
+
+<h4>Edit this machine: @Html.DisplayFor(m => m.ModelName)</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(m => m.MachineId)
+
+  @await Html.PartialAsync("_Forms/_MachineForm")
+  <br />
+  <button>Edit Machine</button>
+  @await Html.PartialAsync("_Buttons/_Cancel")
+}

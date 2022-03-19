@@ -1,0 +1,18 @@
+@model Factory.Models.Machine
+
+<h2>Machine Details</h2>
+
+<fieldset>
+  <legend>@Model.ModelName</legend>
+
+  @await Html.PartialAsync("_Tables/_MachineDetails")
+
+  @await Html.PartialAsync("_Buttons/_EditMachine")
+  @await Html.PartialAsync("_Buttons/_DeleteMachine")
+
+  @if (Model.Authorizations.Count() > 0)
+  {
+    <h5>Authorized Engineers:</h5>
+    @await Html.PartialAsync("_Tables/_EngineersTable", @Model.Authorizations.Select(e => e.Engineer).ToList())
+  }
+</fieldset>
