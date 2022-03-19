@@ -65,6 +65,10 @@ namespace Factory.Controllers
       {
         foreach (int m in MachineId)
         {
+          if (_db.EngineerMachine.Any(em => 
+            em.EngineerId == engineer.EngineerId &&
+            em.MachineId == m
+          )) continue;
           _db.EngineerMachine.Add(new EngineerMachine() {
             EngineerId = engineer.EngineerId,
             MachineId = m

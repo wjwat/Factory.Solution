@@ -14,5 +14,13 @@ namespace Factory.Models
     {
       optionsBuilder.UseLazyLoadingProxies();
     }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+      modelBuilder.Entity<EngineerMachine>().HasKey(em => new {
+        em.EngineerId,
+        em.MachineId
+      });
+    }
   }
 }
