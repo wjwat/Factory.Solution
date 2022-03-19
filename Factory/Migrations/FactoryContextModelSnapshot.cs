@@ -35,19 +35,13 @@ namespace Factory.Migrations
 
             modelBuilder.Entity("Factory.Models.EngineerMachine", b =>
                 {
-                    b.Property<int>("EngineerMachineId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
                     b.Property<int>("EngineerId")
                         .HasColumnType("int");
 
                     b.Property<int>("MachineId")
                         .HasColumnType("int");
 
-                    b.HasKey("EngineerMachineId");
-
-                    b.HasIndex("EngineerId");
+                    b.HasKey("EngineerId", "MachineId");
 
                     b.HasIndex("MachineId");
 

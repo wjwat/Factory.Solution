@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Factory.Migrations
 {
-    public partial class Initial : Migration
+    public partial class CompositeKey : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -46,14 +46,12 @@ namespace Factory.Migrations
                 name: "EngineerMachine",
                 columns: table => new
                 {
-                    EngineerMachineId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     EngineerId = table.Column<int>(type: "int", nullable: false),
                     MachineId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_EngineerMachine", x => x.EngineerMachineId);
+                    table.PrimaryKey("PK_EngineerMachine", x => new { x.EngineerId, x.MachineId });
                     table.ForeignKey(
                         name: "FK_EngineerMachine_Engineers_EngineerId",
                         column: x => x.EngineerId,
@@ -68,11 +66,6 @@ namespace Factory.Migrations
                         onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_EngineerMachine_EngineerId",
-                table: "EngineerMachine",
-                column: "EngineerId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_EngineerMachine_MachineId",
