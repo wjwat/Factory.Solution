@@ -15,6 +15,10 @@ namespace Factory.Models
       optionsBuilder.UseLazyLoadingProxies();
     }
 
+    // Rather than have an auto-incrementing primary key in our join table
+    // we're using the primary keys representing the relationship
+    // (EngineerId, MachineId) as the key. This allows us to avoid creating
+    // duplicate entries in our join table. Without too much extra code.
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
       modelBuilder.Entity<EngineerMachine>().HasKey(em => new {

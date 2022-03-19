@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Factory.Models
 {
@@ -10,7 +12,11 @@ namespace Factory.Models
     }
 
     public int EngineerId { get; set; }
+    [Display(Name = "First Name")]
+    [Required, StringLength(40, MinimumLength = 1)]
     public string FirstName { get; set; }
+    [Display(Name = "Last Name")]
+    [Required, StringLength(40, MinimumLength = 1)]
     public string LastName { get; set; }
     public string Name
     {
