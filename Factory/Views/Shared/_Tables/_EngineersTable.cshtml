@@ -4,9 +4,10 @@
 <table>
   <thead>
     <tr>
-      <th style='width: 15%'>ID</th>
+      <th style='width: 10%'>ID</th>
       <th>First Name</th>
       <th>Last Name</th>
+      <th style='width: 12%'>Machines</th>
       <th style='width: 20%'></th>
     </tr>
   </thead>
@@ -17,6 +18,7 @@
     <td>@e.EngineerId</td>
     <td>@e.FirstName</td>
     <td>@e.LastName</td>
+    <td>@e.Authorizations.Count</td>
     <td>
         @Html.ActionLink("Details", "Details", "Engineers", new {id = e.EngineerId }) | 
         @Html.ActionLink("Edit", "Edit", "Engineers", new { id = e.EngineerId }) | 
