@@ -60,6 +60,12 @@ TODO: Add instructions for migrations
 
 ## :page_facing_up: Notes
 
+- Work with datetime objects to add shifts to Engineers, and uptime tracking to
+  machines.
+- Validate models server side as well as client side.
+- Catch exceptions when attempting to create rows with duplicate keys rather than
+  checking before hand and skipping creation if found.
+
 ## :lady_beetle: Known Bugs
 
 * If any are found please feel free to open an issue or email me at wjwat at
