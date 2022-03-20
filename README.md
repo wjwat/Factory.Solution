@@ -29,10 +29,7 @@ TODO: Add instructions for migrations
 
 - [Install the MySQL Community Server & MySQL Workbench](https://dev.mysql.com/downloads/mysql/)
 - [Install the .NET 5 SDK](https://www.learnhowtoprogram.com/c-and-net/getting-started-with-c/installing-c-and-net)
-- Install the [dotnet-ef](https://docs.microsoft.com/en-us/ef/core/cli/dotnet) tool with this command:
-
-  ```dotnet tool install --global dotnet-ef```
-
+- Install the [dotnet-ef](https://docs.microsoft.com/en-us/ef/core/cli/dotnet) tool with this command: `dotnet tool install --global dotnet-ef`
 - [Clone this
   repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
   to your device
