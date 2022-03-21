@@ -25,8 +25,6 @@ relationships.
 
 ## :gear: Setup/Installation & Usage Instructions
 
-TODO: Add instructions for migrations
-
 - [Install the MySQL Community Server & MySQL Workbench](https://dev.mysql.com/downloads/mysql/)
 - [Install the .NET 5 SDK](https://www.learnhowtoprogram.com/c-and-net/getting-started-with-c/installing-c-and-net)
 - Install the [dotnet-ef](https://docs.microsoft.com/en-us/ef/core/cli/dotnet) tool with this command: `dotnet tool install --global dotnet-ef`
