@@ -31,15 +31,6 @@ relationships.
 - [Clone this
   repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
   to your device
-- Import the SQL database located in the top level of this project
-  - Using `MySQL Workbench`
-    - Open `MySQL Workbench`
-    - Under `Import Options` select `Import from self-contained file`.
-    - Navigate to the directory where you've downloaded this repository & select `will_watkins.sql`
-    - Click OK
-    - Go to the tab called `Import Progress` and click `Start Import` at the bottom right
-    - Reopen the `Schemas` tab under `Navigator`
-    - Right click and select `Refresh All` to verify that the database `will_watkins` appears
 - Create `appsettings.json` in the top level of this repo
   - Copy the contents of the code below into this file. *Make sure to change the password to the password you used to setup your MySQL server*
   ```JSON
